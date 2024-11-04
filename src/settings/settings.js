@@ -155,6 +155,17 @@ export const viewControlButtons = {
   },
 };
 
+export const playPauseControlButtons = {
+  PLAY_BUTTON: {
+    displayName: "Play",
+    initState: false,
+  },
+  PAUSE_BUTTON: {
+    displayName: "Pause",
+    initState: false,
+  },
+};
+
 export const GridEditorSettings = {
   map: {
     mapStyle: {
