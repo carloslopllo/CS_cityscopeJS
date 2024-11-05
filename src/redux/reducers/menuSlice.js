@@ -7,7 +7,7 @@ export const menuSlice = createSlice({
     typesMenuState: {},
     layersMenuState: {},
     viewSettingsMenuState: {},
-    playPauseSettingsMenuState: {},
+    controlSettingsMenuState: {},
     animationMenuState: {
       toggleAnimationState: false,
       animationSpeedSliderValue: 10,
@@ -30,8 +30,8 @@ export const menuSlice = createSlice({
       state.viewSettingsMenuState = action.payload;
     },
 
-    updatePlayPauseSettingsMenuState: (state, action) => {
-      state.playPauseSettingsMenuState = action.payload;
+    updateControlSettingsMenuState: (state, action) => {
+      state.controlSettingsMenuState = action.payload;
     },
 
     updateAnimationMenuState: (state, action) => {
@@ -45,7 +45,7 @@ export const {
   updateTypesMenuState,
   updateEditMenuState,
   updateViewSettingsMenuState,
-  updatePlayPauseSettingsMenuState,
+  updateControlSettingsMenuState,
   updateAnimationMenuState,
 } = menuSlice.actions;
 export default menuSlice.reducer;

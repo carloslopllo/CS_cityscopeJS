@@ -155,7 +155,7 @@ export const viewControlButtons = {
   },
 };
 
-export const playPauseControlButtons = {
+export const controlButtons = {
   PLAY_BUTTON: {
     displayName: "Play",
     initState: false,

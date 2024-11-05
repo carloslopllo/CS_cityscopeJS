@@ -2,7 +2,7 @@ import { Grid, Box } from "@mui/material";
 import TypesMenu from "./TypesMenu";
 import LayersMenu from "./LayersMenu";
 import ViewSettingsMenu from "./ViewSettingsMenu";
-import PlayPauseSettingsMenu from "./PlayPauseSettingsMenu"
+import ControlSettingsMenu from "./ControlSettingsMenu"
 import ScenariosMenu from "./ScenariosMenu";
 import ResizableDrawer from "../../../Components/ResizableDrawer";
 import EditMenu from "./EditMenu";
@@ -54,10 +54,10 @@ function MenuContainer() {
     },
 
     {
-      component: <PlayPauseSettingsMenu />,
+      component: <ControlSettingsMenu />,
       collapse: false,
       title: "Play / Pause Settings",
-      subheader: "Play / pause GAMA simulation",
+      subheader: "Play / Pause GAMA simulation",
     },
   ];
 
