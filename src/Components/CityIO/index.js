@@ -141,7 +141,7 @@ const CityIO = (props) => {
 
         m = {...m, "indicators": newIndicators};
       }
-      if('layers' in lastJsonMessage.content.moduleData){
+      if('layers' in lastJsonMessage.content.moduleData){ // "id":"geojson","type":"geojsonbase"
         
         var newLayersIds = [];
         var newLayers = [];
