@@ -1,13 +1,22 @@
 import { useLayoutEffect, useState } from "react";
 import { ButtonGroup, Button, List } from "@mui/material";
-import { controlButtons } from "../../../../settings/settings";
+import { controlButtons, cityIOSettings } from "../../../../settings/settings";
 import { updateControlSettingsMenuState } from "../../../../redux/reducers/menuSlice";
 import { useDispatch } from "react-redux";
+import useWebSocket, { ReadyState } from "react-use-websocket"
 
 function ControlSubmenu() {
   const dispatch = useDispatch();
 
   const [controlSettingsMenuState, setControlSettingsMenuState] = useState();
+
+  const { sendJsonMessage, readyState } = useWebSocket(
+    cityIOSettings.cityIO.websocketURL,
+    {
+      share: true,
+      shouldReconnect: () => true,
+    },
+  )
 
   // return the menu state to parent component
   useLayoutEffect(() => {
@@ -17,6 +26,16 @@ function ControlSubmenu() {
   }, [controlSettingsMenuState]);
 
   const handleButtonClicks = (thisButton) => {
+    let dataProps = [];
+    dataProps[0] = controlButtons[thisButton].displayName;
+    if (readyState === ReadyState.OPEN) {
+      sendJsonMessage({
+        type: "UPDATE_GRID",
+        content: {
+          geogriddata: dataProps,
+        },
+      })
+    }
     setControlSettingsMenuState({
       ...controlSettingsMenuState,
       PLAY_PAUSE_BUTTONS: thisButton,
