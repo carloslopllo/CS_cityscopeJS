@@ -26,13 +26,12 @@ function ControlSubmenu() {
   }, [controlSettingsMenuState]);
 
   const handleButtonClicks = (thisButton) => {
-    let dataProps = [];
-    dataProps[0] = controlButtons[thisButton].displayName;
     if (readyState === ReadyState.OPEN) {
       sendJsonMessage({
-        type: "UPDATE_GRID",
+        type: "UPDATE_MODULE",
         content: {
-          geogriddata: dataProps,
+          name: "gama",
+          payload: controlButtons[thisButton].displayName
         },
       })
     }
